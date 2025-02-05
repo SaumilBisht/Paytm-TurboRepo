@@ -42,7 +42,7 @@ export default function LoginPage() {
                     <blockquote className="text-2xl font-medium">
                         "This app has made transactions seamless and efficient for everyone."
                     </blockquote>
-                    <cite className="text-gray-600 font-medium">PayTM Team</cite>
+                    <div className="text-gray-600 font-medium">CEO | Acme.Inc</div>
                 </div>
             </div>
             <div className="flex items-center justify-center p-6 md:p-12">
