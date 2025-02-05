@@ -13,7 +13,7 @@ export default function Layout({
                 <SidebarItem href={"/transfer"} icon={<TransferIcon />} title="Transfer" />
                 <SidebarItem href={"/transactions"} icon={<TransactionsIcon />} title="Transactions" />
                 <SidebarItem href={"/p2p"} icon={<P2PTransferIcon />} title="P2P Transfer" />
-                <SidebarItem href={"/withdraw"} icon={<Withdraw />} title="Withdrawl" />
+                <SidebarItem href={"/withdraw"} icon={<Withdraw />} title="Withdrawal" />
             </div>
         </div>
             {children}
