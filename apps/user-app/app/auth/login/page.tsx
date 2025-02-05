@@ -33,7 +33,7 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
-            <div className="hidden md:flex bg-gray-50 p-12 flex-col justify-between">
+            <div className="hidden md:flex bg-gray-200 p-12 flex-col justify-between">
                 <div className="flex items-center space-x-2">
                     <Command className="h-6 w-6" />
                     <span className="text-xl font-semibold">PayTM</span>
@@ -45,7 +45,7 @@ export default function LoginPage() {
                     <div className="text-gray-600 font-medium">CEO | Acme.Inc</div>
                 </div>
             </div>
-            <div className="flex items-center justify-center p-6 md:p-12">
+            <div className="bg-gray-50 flex items-center justify-center p-6 md:p-12">
                 <div className="w-full max-w-sm space-y-6">
                     <div className="space-y-2 text-center">
                         <h1 className="text-2xl font-semibold tracking-tight">

@@ -20,7 +20,7 @@ export const RemoveMoney = () => {
     const [provider, setProvider] = useState(SUPPORTED_BANKS[0]?.name || "");
     const [value, setValue] = useState(0)
     const router=useRouter()
-    return <Card title="Add Money">
+    return <Card title="Withdraw Money">
     <div className="w-full">
         <TextInput label={"Amount"} placeholder={"Amount"} onChange={(val) => {
             setValue(Number(val))
@@ -41,7 +41,7 @@ export const RemoveMoney = () => {
                 window.location.href = redirectUrl || "";
                 router.refresh();
             }}>
-            Add Money
+            Withdraw
             </Button>
         </div>
     </div>
