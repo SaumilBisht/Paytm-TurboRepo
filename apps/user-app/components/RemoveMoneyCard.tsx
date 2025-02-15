@@ -64,7 +64,11 @@ export const RemoveMoney = () => {
                     setLoading(false);
                 }
             }}>
+<<<<<<< HEAD
             Withdraw
+=======
+                Withdraw Money
+>>>>>>> origin/main
             </Button>
             <LoadingIndicator loading={loading} text="Processing..." />
         </div>

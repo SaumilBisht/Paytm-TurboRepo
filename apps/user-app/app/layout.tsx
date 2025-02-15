@@ -2,7 +2,11 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "../provider";
+<<<<<<< HEAD
 import { LayoutWrapper } from "../components/LayoutWrapper"; // Import LayoutWrapper
+=======
+import { LayoutWrapper } from "../components/LayoutWrapper"; 
+>>>>>>> origin/main
 
 const inter = Inter({ subsets: ["latin"] });
 

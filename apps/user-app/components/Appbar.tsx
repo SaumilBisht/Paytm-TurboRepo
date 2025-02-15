@@ -16,12 +16,18 @@ export const Appbar = ({
 }: AppbarProps) => {
     return (
         <div className="flex items-center w-full px-6 py-4 border-b border-gray-300 bg-gray-100">
+<<<<<<< HEAD
             {/* Hidden on md and smaller screens */}
+=======
+>>>>>>> origin/main
             <div className="hidden md:flex items-center space-x-2">
                 <Command className="h-6 w-6" />
                 <span className="text-xl font-semibold">PayTM</span>
             </div>
+<<<<<<< HEAD
             {/* Pushes button to the rightmost side */}
+=======
+>>>>>>> origin/main
             <Button
                 onClick={user ? onSignout : onSignin}
                 variant="ghost"
@@ -31,4 +37,8 @@ export const Appbar = ({
             </Button>
         </div>
     )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

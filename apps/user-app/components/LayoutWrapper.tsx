@@ -13,4 +13,8 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
       {children}
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
