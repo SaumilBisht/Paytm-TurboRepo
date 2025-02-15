@@ -1,11 +1,7 @@
 'use client'
 import { useState } from "react"
 import { SidebarItem } from "../../components/SidebarItem"
-<<<<<<< HEAD
 import type React from "react" // Added import for React
-=======
-import type React from "react" 
->>>>>>> origin/main
 
 export default function Layout({
   children,
@@ -139,9 +135,5 @@ function Withdraw() {
       />
     </svg>
   )
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> origin/main

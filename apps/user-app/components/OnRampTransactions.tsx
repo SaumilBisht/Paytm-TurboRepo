@@ -32,9 +32,5 @@ export const OnRampTransactions = ({
       </div>
     </Card>
   )
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> origin/main
