@@ -32,14 +32,24 @@ async function getTransactions() {
     });
 
     return [
-        ...sentTransactions.map(tx => ({
+        ...sentTransactions.map((tx: {
+          id: number;
+          timestamp: Date;
+          amount: number;
+          toUser: { number: string };
+        }) => ({
             id: tx.id,
             date: new Date(tx.timestamp),
             user: tx.toUser.number,
             amount: tx.amount,
             type: "debit"
         })),
-        ...receivedTransactions.map(tx => ({
+        ...receivedTransactions.map((tx: {
+          id: number;
+          timestamp: Date;
+          amount: number;
+          fromUser: { number: string };
+        }) => ({
             id: tx.id,
             date: new Date(tx.timestamp),
             user: tx.fromUser.number,
