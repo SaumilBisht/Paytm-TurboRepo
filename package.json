@@ -20,5 +20,6 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "postinstall": "cd packages/db && npx prisma generate"
 }
