@@ -43,10 +43,15 @@ async function getOffRampTransactions() {
       userId: Number(session?.user?.id)
     }
   });
-  return txns.map(t => ({
+  return txns.map((t: {
+    startTime: Date;
+    amount: number;
+    status: "Success" | "Failure" | "Processing";
+    provider: string;
+  }) => ({
     time: t.startTime,
     amount: t.amount,
     status: t.status,
     provider: t.provider
-  }))
+  }));
 }
