@@ -47,7 +47,7 @@ export async function createOffRampTransaction(provider: string, amount: number)
     ])
     console.log("OffRampTransaction created and wallet se locked mei daal diya")
     
-    const bankEndpoint = provider === "Axis Bank" ? "http://localhost:3004/axisBankWithdrawl" : "http://localhost:3005/hdfcBankWithdrawl";
+    const bankEndpoint = provider === "Axis Bank" ? "http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/axisBank/axisBankWithdrawl" : "http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/hdfcBank/hdfcBankWithdrawl";
     
     const bankResponse=await axios.post(bankEndpoint,{token, userId: Number(session.user.id), amount:(Number(amount)*100 )})
     if (bankResponse.status !== 200) { // Or whatever your success code is
