@@ -28,7 +28,7 @@ export async function createOnRampTransaction(provider: string, amount: number) 
         
         console.log("OnRampTransaction Processed")
 
-        const bankEndpoint = provider === "Axis Bank" ? "http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/axisBank/axisBank" : "http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/hdfcBank/hdfcBank";
+        const bankEndpoint = provider === "Axis Bank" ? "https://saumilbisht.in/axisBank/axisBank" : "https://saumilbisht.in/hdfcBank/hdfcBank";
 
         const bankResponse=await axios.post(bankEndpoint, { token, userId: Number(session.user.id), amount:(Number(amount)*100 )});
         if (bankResponse.status !== 200) { // Or whatever your success code is

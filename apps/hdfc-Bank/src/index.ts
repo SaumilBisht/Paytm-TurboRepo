@@ -39,7 +39,7 @@ app.post("/hdfcBank", async (req, res):Promise<any> => {
       });
       console.log("Amount Shi h locked bhi krdia. Ab webhook ko bolrhe")
 
-      await axios.post("http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/bank-webhook/hdfcWebhook", { token, user_identifier: userId, amount });
+      await axios.post("https://saumilbisht.in/bank-webhook/hdfcWebhook", { token, user_identifier: userId, amount });
       console.log("webhook se aagye sb badhiya")
       return res.json({ message: "Webhook triggered successfully" });
   } catch (error) {
@@ -78,7 +78,7 @@ app.post("/hdfcBankWithdrawl", async (req, res): Promise<any> => {
         })
         console.log("hdfc mei lock krdiya")
 
-        await axios.post("http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/bank-webhook/hdfcWebWithdrawl", { token, user_identifier: userId, amount });
+        await axios.post("https://saumilbisht.in/bank-webhook/hdfcWebWithdrawl", { token, user_identifier: userId, amount });
         console.log("webhook se aagye sb badhiya")
         return res.json({ message: "Webhook triggered successfully" });
 

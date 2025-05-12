@@ -39,7 +39,7 @@ app.post("/axisBank", async (req, res): Promise<any> => {
       });
       console.log("Amount Shi h locked bhi krdia. Ab webhook ko bolrhe")
 
-      await axios.post("http://http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/bank-webhook/axisWebhook", { token, user_identifier: userId, amount });
+      await axios.post("http://https://saumilbisht.in/bank-webhook/axisWebhook", { token, user_identifier: userId, amount });
       console.log("webhook se aagye sb badhiya")
       return res.json({ message: "Webhook triggered successfully" });
   } catch (error) {
@@ -74,7 +74,7 @@ app.post("/axisBankWithdrawl", async (req, res): Promise<any> => {
         })
         console.log("axis ka locked bda diya")
 
-        await axios.post("http://http://ec2-16-170-35-253.eu-north-1.compute.amazonaws.com/bank-webhook/axisWebWithdrawl", { token, user_identifier: userId, amount });
+        await axios.post("http://https://saumilbisht.in/bank-webhook/axisWebWithdrawl", { token, user_identifier: userId, amount });
         console.log("webhook se aagye sb badhiya")
         return res.status(200).json({ message: "Webhook triggered successfully" });
 
