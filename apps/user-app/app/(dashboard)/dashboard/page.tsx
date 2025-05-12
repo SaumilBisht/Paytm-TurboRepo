@@ -52,13 +52,13 @@ export default async function Dashboard() {
     return <div className="p-10 text-center">Please log in to view your dashboard.</div>;
   }
 
-  const [balance, totalExpenses,hAmount,axisAmount] = await Promise.all([
+  const [balance, p2pCount, totalExpenses, hAmount, axisAmount] = await Promise.all([
     getBalance(userId),
     getP2P(userId),
     totalP2P(userId),
     getHdfcAmount(userId),
     getAxisAmount(userId)
-  ]);
+  ]);  
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols p-10">
