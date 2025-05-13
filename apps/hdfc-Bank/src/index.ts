@@ -1,7 +1,7 @@
 import express from "express";
 import db from "@repo/db/client";
 import axios from "axios";
-
+import {webhookURL} from "../../config"
 const app = express();
 import * as Cors from "cors";
 
@@ -39,7 +39,7 @@ app.post("/hdfcBank", async (req, res):Promise<any> => {
       });
       console.log("Amount Shi h locked bhi krdia. Ab webhook ko bolrhe")
 
-      await axios.post("https://saumilbisht.in/bank-webhook/hdfcWebhook", { token, user_identifier: userId, amount });
+      await axios.post(`${webhookURL}/hdfcWebhook`, { token, user_identifier: userId, amount });
       console.log("webhook se aagye sb badhiya")
       return res.json({ message: "Webhook triggered successfully" });
   } catch (error) {
@@ -78,7 +78,7 @@ app.post("/hdfcBankWithdrawl", async (req, res): Promise<any> => {
         })
         console.log("hdfc mei lock krdiya")
 
-        await axios.post("https://saumilbisht.in/bank-webhook/hdfcWebWithdrawl", { token, user_identifier: userId, amount });
+        await axios.post(`${webhookURL}/hdfcWebWithdrawl`, { token, user_identifier: userId, amount });
         console.log("webhook se aagye sb badhiya")
         return res.json({ message: "Webhook triggered successfully" });
 

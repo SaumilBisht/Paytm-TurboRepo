@@ -4,6 +4,7 @@ import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
 import crypto from "crypto";
+import { axisURL, hdfcURL } from "../../../../config";
 
 export async function createOnRampTransaction(provider: string, amount: number) {
     const session = await getServerSession(authOptions);
@@ -28,7 +29,7 @@ export async function createOnRampTransaction(provider: string, amount: number) 
         
         console.log("OnRampTransaction Processed")
 
-        const bankEndpoint = provider === "Axis Bank" ? "https://saumilbisht.in/axisBank/axisBank" : "https://saumilbisht.in/hdfcBank/hdfcBank";
+        const bankEndpoint = provider === "Axis Bank" ? `${axisURL}/axisBank` : `{${hdfcURL}/hdfcBank`;
 
         const bankResponse=await axios.post(bankEndpoint, { token, userId: Number(session.user.id), amount:(Number(amount)*100 )});
         if (bankResponse.status !== 200) { // Or whatever your success code is

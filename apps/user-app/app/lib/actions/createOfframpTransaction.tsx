@@ -4,7 +4,7 @@ import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
 import crypto from "crypto";
-
+import {axisURL,hdfcURL} from "../../../../config"
 export async function createOffRampTransaction(provider: string, amount: number){
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
@@ -47,7 +47,7 @@ export async function createOffRampTransaction(provider: string, amount: number)
     ])
     console.log("OffRampTransaction created and wallet se locked mei daal diya")
     
-    const bankEndpoint = provider === "Axis Bank" ? "https://saumilbisht.in/axisBank/axisBankWithdrawl" : "https://saumilbisht.in/hdfcBank/hdfcBankWithdrawl";
+    const bankEndpoint = provider === "Axis Bank" ? `${axisURL}/axisBankWithdrawl` : `{${hdfcURL}/hdfcBankWithdrawl`;
     
     const bankResponse=await axios.post(bankEndpoint,{token, userId: Number(session.user.id), amount:(Number(amount)*100 )})
     if (bankResponse.status !== 200) { // Or whatever your success code is
