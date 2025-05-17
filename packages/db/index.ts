@@ -1,3 +1,6 @@
+import { config } from 'dotenv'
+config()
+
 import { PrismaClient } from '@prisma/client'
 
 const prismaClientSingleton = () => {
@@ -8,7 +11,8 @@ declare global {
   var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>
 }
 
-const prisma: ReturnType<typeof prismaClientSingleton> = globalThis.prismaGlobal ?? prismaClientSingleton()
+const prisma: ReturnType<typeof prismaClientSingleton> =
+  globalThis.prismaGlobal ?? prismaClientSingleton()
 
 export default prisma
 
