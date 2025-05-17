@@ -6,6 +6,14 @@ const app = express();
 app.use(Cors.default()); // Use Cors.default() instead of cors()
 app.use(express.json())
 
+app.get('/healthcheck', (req, res) => {
+    res.status(200).json({
+      status: 'healthy',
+      service: 'webhook', // Change per service
+      timestamp: new Date().toISOString()
+    });
+  });
+
 app.post("/hdfcWebhook", async (req, res) => {
     
     const { token, amount } = req.body;

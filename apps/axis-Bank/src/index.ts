@@ -7,7 +7,13 @@ import * as Cors from "cors";
 
 app.use(Cors.default()); // Use Cors.default() instead of cors()
 app.use(express.json())
-
+app.get('/healthcheck', (req, res) => {
+    res.status(200).json({
+      status: 'healthy',
+      service: 'axis', // Change per service
+      timestamp: new Date().toISOString()
+    });
+  });
 app.post("/axisBank", async (req, res): Promise<any> => {
   const { token, userId, amount } = req.body;
   console.log("Axis Bank Transaction Started");
