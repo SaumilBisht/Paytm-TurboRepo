@@ -6,7 +6,12 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "postinstall": "cd packages/db && npx prisma generate"
+    "postinstall": "cd packages/db && npx prisma generate",
+    "db:generate": "cd packages/db && npx prisma generate && cd ../../",
+    "start:fe": "cd apps/user-app/src && npm run start",
+    "start:wh": "cd apps/bank-webhook/src && npm run index.ts",
+    "start:axis": "cd apps/axis-Bank/src && npm run index.ts",
+    "start:hdfc": "cd apps/hdfc-Bank/src && npm run index.ts"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
