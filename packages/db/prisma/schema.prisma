@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -17,10 +16,10 @@ model User {
   OnRampTransaction OnRampTransaction[]
   Balance           Balance[]
 
-  sentTransfers     p2pTransfer[]       @relation(name: "FromUserRelation")
-  receivedTransfers p2pTransfer[]       @relation(name: "ToUserRelation")
+  sentTransfers     p2pTransfer[] @relation(name: "FromUserRelation")
+  receivedTransfers p2pTransfer[] @relation(name: "ToUserRelation")
 
-  Axis AxisBank?//one to one relation
+  Axis AxisBank? //one to one relation
   HDFC HDFCBank?
 
   OffRampTransaction OffRampTransaction[]
@@ -44,7 +43,7 @@ model OnRampTransaction {
   user      User         @relation(fields: [userId], references: [id])
 }
 
-model Balance {//wallet
+model Balance {
   id     Int  @id @default(autoincrement())
   userId Int  @unique
   amount Int
@@ -53,16 +52,16 @@ model Balance {//wallet
 }
 
 model p2pTransfer {
-  id         Int          @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   amount     Int
   timestamp  DateTime
   fromUserId Int
-  fromUser   User         @relation(name: "FromUserRelation", fields: [fromUserId], references: [id])
+  fromUser   User     @relation(name: "FromUserRelation", fields: [fromUserId], references: [id])
   toUserId   Int
-  toUser     User         @relation(name: "ToUserRelation", fields: [toUserId], references: [id])
+  toUser     User     @relation(name: "ToUserRelation", fields: [toUserId], references: [id])
 }
 
-model AxisBank{
+model AxisBank {
   id     Int  @id @default(autoincrement())
   userId Int  @unique
   amount Int
@@ -70,7 +69,7 @@ model AxisBank{
   user   User @relation(fields: [userId], references: [id])
 }
 
-model HDFCBank{
+model HDFCBank {
   id     Int  @id @default(autoincrement())
   userId Int  @unique
   amount Int
@@ -91,7 +90,7 @@ enum OnRampStatus {
 
 model OffRampTransaction {
   id        Int          @id @default(autoincrement())
-  status    OnRampStatus//Success failure processing
+  status    OnRampStatus //Success failure processing
   token     String       @unique
   provider  String
   amount    Int
