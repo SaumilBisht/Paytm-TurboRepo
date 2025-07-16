@@ -8,6 +8,9 @@ STEP 2: RUN POSTGRES
       -> docker run -d --name my_postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres
       
 STEP 3: BUILD IMAGES
+
+        Firstly, in turbo.json, change pipeline to tasks as pipeline is for vercel and tasks for docker.
+        
         -> docker build -t my-frontend -f docker/Dockerfile.user .
         -> docker build -t my-webhook -f docker/Dockerfile.webhook .
         -> docker build -t my-axis -f docker/Dockerfile.axis .
