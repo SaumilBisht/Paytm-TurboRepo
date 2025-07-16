@@ -9,9 +9,9 @@
     "postinstall": "cd packages/db && npx prisma generate",
     "db:generate": "cd packages/db && npx prisma generate && cd ../../",
     "start:fe": "cd apps/user-app/src && npm run start",
-    "start:wh": "cd apps/bank-webhook/src && npm run index.ts",
-    "start:axis": "cd apps/axis-Bank/src && npm run index.ts",
-    "start:hdfc": "cd apps/hdfc-Bank/src && npm run index.ts"
+    "start:wh": "cd apps/bank-webhook && npm run start",
+    "start:axis": "cd apps/axis-Bank && npm run start",
+    "start:hdfc": "cd apps/hdfc-Bank && npm run start"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
