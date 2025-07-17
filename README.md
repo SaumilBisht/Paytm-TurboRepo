@@ -59,3 +59,19 @@ STEP 4: RUN EACH CONTAINER
 
 Stop all running containers:  ->docker stop $(docker ps -q)
 Remove all containers: ->docker rm $(docker ps -aq)
+
+## DOCKER COMPOSE STEPS
+
+0. Clone repo and cd ..
+1. in turbo.json replace pipeline with tasks
+2. Build and start all services:
+    -> docker compose up -d --build
+3. MIGRATE DB 
+   -> docker ps
+
+  -> docker exec -it user-fe sh
+  -> cd packages/db
+  -> npx prisma migrate dev --name init 
+  -> exit
+
+IF, Stop the app: docker compose down docker compose down --volumes --remove-orphans

@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  webhook:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.webhook
+    ports:
+      - "3003:3003"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - postgres
+
+  user-fe:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.user
+      args:
+        DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - postgres
+
+  axis:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.axis
+    ports:
+      - "3004:3004"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - postgres
+  
+  hdfc:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.hdfc
+    ports:
+      - "3005:3005"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
