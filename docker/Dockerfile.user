@@ -11,8 +11,6 @@ COPY ./turbo.json ./turbo.json
 
 
 COPY ./packages ./packages
-
-COPY ./.env ./.env 
 COPY ./apps/user-app ./apps/user-app
 
 COPY . .
