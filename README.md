@@ -69,7 +69,7 @@ Remove all containers: ->docker rm $(docker ps -aq)
 3. MIGRATE DB 
    -> docker ps
 
-  -> docker exec -it user-fe sh
+  -> docker exec -it paytmfinal-user-fe-1 sh
   -> cd packages/db
   -> npx prisma migrate dev --name init 
   -> exit
