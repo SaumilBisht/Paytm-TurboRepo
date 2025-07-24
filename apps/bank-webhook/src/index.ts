@@ -1,11 +1,14 @@
 import express from "express";
 import db from "@repo/db/client";
 import * as Cors from "cors";
+import client from "prom-client"
+import { metricsMiddleware } from "../metrics/index";
 const app = express();
 
 app.use(Cors.default()); // Use Cors.default() instead of cors()
 app.use(express.json())
 
+app.use(metricsMiddleware);
 app.get('/healthcheck', (req, res) => {
     res.status(200).json({
       status: 'healthy',
@@ -14,6 +17,12 @@ app.get('/healthcheck', (req, res) => {
     });
   });
 
+  app.get('metrics',async(req,res)=>{
+    const metrics=await client.register.metrics();
+
+    res.set('Content-Type',client.register.contentType)
+    res.end(metrics)
+  })
 app.post("/hdfcWebhook", async (req, res) => {
     
     const { token, amount } = req.body;
